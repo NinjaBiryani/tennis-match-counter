@@ -1,0 +1,98 @@
+body {
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    position: absolute; 
+    background-image: url("tennis-1.jpg"); 
+    background-size: cover; 
+
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+#game-counter-box {
+    min-width: 400px; 
+    min-height: 200px; 
+    margin: 0; 
+    /* border: 3px solid green;  */
+    /* background: #006E33;  */
+    background: #25a244; 
+    /* box-shadow: 5px 5px 0px #006E33;  */
+    /* border-bottom: 5px solid #006E33; 
+    border-right: 5px solid #006E33;  */
+    border-radius: 4px; 
+
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+}
+
+#P1-box, #P2-box {
+    width: 100%; 
+    border: 2px solid red; 
+
+    /* display: flex; 
+    justify-content: center; 
+    align-items: center;  */
+
+    text-align: center
+}
+
+#P1-name, #P2-name {
+    border: 2px solid blue; 
+    height: 15%; 
+}
+
+#P1-points-box, #P2-points-box {
+    border: 2px solid black; 
+    height: 40%; 
+}
+
+#P1-points, #P2-points {
+    border: 2px solid aqua; 
+}
+
+#WTP-P1-box, #WTP-P2-box {
+    border: 2px solid yellow;
+    height: 15%;  
+
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+#match-counter-box {
+    margin: 0 0 200px 0; 
+    border: 2px solid orange; 
+    width: 400px; 
+    height: 75px; 
+
+    display: flex;
+    flex-direction: column; 
+
+    background: #4ad66d; 
+}
+
+#P1-match-box, #P2-match-box {
+    border: 2px solid grey; 
+    height: 50%; 
+
+    display: flex; 
+
+}
+
+#player-1-name, #player-2-name {
+    border: 2px solid darkred; 
+    height: 100%; 
+    width: 25%; 
+    margin: 0; 
+}
+
+#P1-match-score, #P2-match-score {
+    border: 2px solid white; 
+    height: 100%; 
+    width: 75%;
+    margin: 0; 
+}
