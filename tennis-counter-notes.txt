@@ -1,0 +1,67 @@
+p1 6 - p2 <= 4
+
+p1 5 - p2 5 => to 7 // matchScore <= 5; => +1 => becomes 6 => set stops
+ 
+p1 6 - p2 6 => to 7 (tiebreak) // matchScore === 5 && matchScore === 5 => to 7 => set stops 
+
+game-process: 
+
+matchScore1 <= 4 && matchScore2 <= 4
+
+=> when p1 reaches here at 4 he gets => 5 
+
+normal scenario:  
+
+matchScore1 === 5 && matchScore2 <=4 
+
+=> when p1 reaches here at 5 he gets => 6 (SET) 
+
+5 - 5 scenario: 
+
+matchScore1 === 5 && matchScore2 === 5 
+
+=> when p1 reaches here he gets => 6
+
+matchScore1 === 6 && matchScore2 === 5 
+
+=> when p1 reaches here he gets => 7 (SET)
+
+matchScore === 6 && matchScore2 === 6 
+
+=> when p1 reaches here => tiebreak
+
+	-tiebreak-
+	
+	
+	matchScore1 <= 5 && matchScore2 <= 5 
+	
+	when p1 gets here he gets => 6
+	
+	matchScore === 6 && matchScore <= 5
+	
+	when p1 gets here he gets => 7 (SET)
+	
+	matchScore === 6 && matchScore === 6
+	
+	when p1 gets here he gets => 7
+	
+	(matchScore1 - matchScore2) === 0
+	
+	p1 gets a point
+	
+	(matchScore1 - matchScore2) === 1
+	
+	when p1 gets here he gets => matchScore1 = matchScore + 2 (SET)
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+ 
