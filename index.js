@@ -173,6 +173,181 @@ function gameCounterP1() {
     }
 }
 
+// COPY OF SCENARIO-CODE
+
+let setCounterP1 = 0; 
+let setCounterP2 = 0; 
+
+let tiebreakCounterP1 = 0; 
+let tiebreakCounterP2 = 0; 
+
+// SET 1 CODE
+if (p1MatchScore.textContent <= "4" && p2MatchScore.textContent<= "4" && (setCounterP1 === 0)) {
+    // game-code 
+    gameCounterP1()
+} else if (p1MatchScore.textContent === "5" && p2MatchScore.textContent <="4" && (setCounterP1 === 0) ) {
+    // game-code
+    gameCounterP1()
+    // nextSet-code 
+    if (p1MatchScore.textContent === "6") {
+        p1MatchScore.textContent += " 0"; 
+        p2MatchScore.textContent += " 0"; 
+        setCounterP1 += 1; 
+    }
+    // (OR win-code)
+} else if (p1MatchScore.textContent === "5" && p2MatchScore.textContent === "5" && (setCounterP1 === 0)) {
+    // game-code
+    gameCounterP1()
+} else if (p1MatchScore.textContent === "6" && p2MatchScore.textContent === "5" && (setCounterP1 === 0) ) {
+    // game-code 
+    gameCounterP1()
+    // nextSet-code 
+    if (p1MatchScore.textContent === "6") {
+        setCounterP1 += 1;
+        p1MatchScore.textContent += " 0"; 
+        p2MatchScore.textContent += " 0"; 
+
+    }
+    // (OR win-code)
+} else if (p1MatchScore.textContent === "6" && p2MatchScore.textContent === "6" && (setCounterP1 === 0)) {
+
+    if (p1GamePoints.textContent <= "5" && p2GamePoints.textContent === "5" && (setCounterP1 === 0) ) {
+        // tiebreak-code
+        tiebreakCounterP1 += 1; 
+        p1GamePoints.textContent = tiebreakCounterP1; 
+    } else if (p1GamePoints.textContent === "6" && p2GamePoints.textContent <= "5" && (setCounterP1 === 0)) {
+        // tiebreak-code - end set 
+        setCounterP1 += 1; 
+        p1GamePoints.textContent = 0; 
+        p2GamePoints.textContent = 0; 
+        // nextSet-code 
+        if (p1MatchScore.textContent === "6") {
+        p1MatchScore.textContent += " 0"; 
+        p2MatchScore.textContent += " 0"; 
+    }
+        // (OR win-code)
+    } else if (p1GamePoints.textContent >= "6" && p2GamePoints.textContent >= "6" && (setCounterP1 === 0))  {
+
+        if ((p1GamePoints.textContent - p2GamePoints.textContent) === 0 && (setCounterP1 === 0)) {
+            // tiebreak-code
+            tiebreakCounterP1 += 1; 
+            p1GamePoints.textContent = tiebreakCounterP1; 
+        } else if ((p1GamePoints.textContent - p2GamePoints.textContent) === 1 && (setCounterP1 === 0)) {
+            // tiebreak-code - end set
+            setCounterP1 += 1; 
+            p1GamePoints.textContent = 0; 
+            p2GamePoints.textContent = 0;
+            // nextSet-code (OR win-code)
+            if (p1MatchScore.textContent === "6") {
+                p1MatchScore.textContent += " 0"; 
+                p2MatchScore.textContent += " 0"; 
+            }
+        }
+    }
+}
+
+// GAME COUNTER FOR SET 2 
+
+function gameCounterP1Set2() {
+// GAME-CODE
+
+    // GAME-PROCESS (WITHOUT DEUCE)
+    if (p1GamePoints.textContent === "0") {
+        p1GamePoints.textContent = "15"; 
+    } else if (p1GamePoints.textContent === "15") {
+        p1GamePoints.textContent = "30"; 
+    } else if (p1GamePoints.textContent === "30") {
+        p1GamePoints.textContent = "40";
+    
+    // FINISH GAME (WITHOUT DEUCE)
+    } else if (p1GamePoints.textContent === "40" && p2GamePoints.textContent < "40") {
+
+        gameSet2 = p1MatchScore.textContent.substring(2,3); 
+        gameSet2 = (parseInt(gameSet2) + 1).toString(); 
+        gameSet1andGap = p1MatchScore.textContent.substring(0,2); 
+        p1MatchScore.textContent = gameSet1andGap + gameSet2; 
+        
+        // // gamesP1 += 1; 
+        // // p1MatchScore.textContent = gamesP1;  
+        // // p1GamePoints.textContent = "0"; 
+        // // p2GamePoints.textContent = "0"; 
+
+        // put break here?
+    
+    // GAME-PROCESS: GOING TO AD STAGE
+    } else if (p1GamePoints.textContent === "40" && p2GamePoints.textContent === "40") {
+        p1GamePoints.textContent = "AD";
+        p2GamePoints.textContent = ""; 
+        // put break here?
+    
+    // GAME-PROCESS: GOING BACK TO 40-40
+    } else if (p2GamePoints.textContent === "AD") {  
+        p1GamePoints.textContent = "40"; 
+        p2GamePoints.textContent = "40";
+        // put break here?
+    
+    // FINISH GAME (WITH DEUCE)
+    } else if (p1GamePoints.textContent === "AD") {
+
+        gameSet2 = p1MatchScore.textContent.substring(2,3); 
+        gameSet2 = (parseInt(gameSet2) + 1).toString(); 
+        gameSet1andGap = p1MatchScore.textContent.substring(0,2); 
+        p1MatchScore.textContent = gameSet1andGap + gameSet2; 
+
+        // // gamesP1 += 1;
+        // // p1MatchScore.textContent = gamesP1;  
+        // // p1GamePoints.textContent = "0"; 
+        // // p2GamePoints.textContent = "0";
+
+        // put break here?
+    }
+}
+
+// TIEBREAK-CODE SET 2 & SET 3
+// => more similiar to SET 1 I think, bcs it doesn't involve the MatchScores
+
+//TIEBREAK-CODE
+// tiebreakP1 += 1; // + code above
+
+//NEWSET-CODE
+
+// => so something like: if(p1MatchScore.textContent.length = 3) FOR SET 2 
+//                       if(p1MatchScore.textContent.length = 5) FOR SET 3
+
+// CHANGING GAME IN SET 2 
+// p1MatchScore.textContent += " 0";
+// // "6 0"
+// gameSet2 = p1MatchScore.textContent.substring(2,3); 
+// // "0"
+// gameSet2 = (parseInt(gameSet2) + 1).toString(); 
+// // "1"
+// gameSet1andGap = p1MatchScore.textContent.substring(0,2); 
+// // "6 "
+// p1MatchScore.textContent = gameSet1andGap + gameSet2; 
+// // "6 1"
+
+// => also change all conditions to: i.e. p1MatchScore.textContent.charAt(3) == "4" / "5" / "6" etc.
+
+// CHANGING GAME IN SET 3 
+// p1MatchScore.textContent += " 0";
+// // "6 6 0"
+// gameSet3 = p1MatchScore.textContent.substring(4,5); 
+// // "0"
+// gameSet3 = (parseInt(gameSet2) + 1).toString(); 
+// // "1"
+// gameSet2andGap = p1MatchScore.textContent.substring(0,4); 
+// // "6 6 "
+// p1MatchScore.textContent = gameSet2andGap + gameSet3; 
+// // "6 6 1"
+
+// => also change all conditions to: i.e. p1MatchScore.textContent.charAt(5) == "4" / "5" / "6" etc.
+
+//WIN-CODE
+
+// make a set count like: setCounterP1 = 0; 
+// when p1 wins a set: setCounterP1 = 1; 
+// and then: if(setCounterP1 = 2); => P1 wins
+
 
 // SCENARIO-CODE
 
@@ -204,30 +379,46 @@ if (p1MatchScore.textContent <= "4" && p2MatchScore.textContent<= "4") {
     }
 }
 
+// SEPERATE FUNCTIONS (IF NEEDED) 
 
-//TIEBREAK-CODE
-// tiebreakP1 += 1; // + code above
+function gameProcessP1() {
+     if (p1GamePoints.textContent === "0") {
+        p1GamePoints.textContent = "15"; 
+    } else if (p1GamePoints.textContent === "15") {
+        p1GamePoints.textContent = "30"; 
+    } else if (p1GamePoints.textContent === "30") {
+        p1GamePoints.textContent = "40";
+    }
+}
 
-//NEWSET-CODE
+function gameFinishP1() {
+    if (p1GamePoints.textContent === "40" && p2GamePoints.textContent < "40") {
+        gamesP1 += 1; 
+        p1MatchScore.textContent = gamesP1;  
+        p1GamePoints.textContent = "0"; 
+        p2GamePoints.textContent = "0";     
+    }
+}
 
-// => so something like: if(p1MatchScore.textContent.length = 3) FOR SET 2 
-//                       if(p1MatchScore.textContent.length = 5) FOR SET 3
+function GoToADP1() {
+    if (p2GamePoints.textContent === "AD") {  
+        p1GamePoints.textContent = "40"; 
+        p2GamePoints.textContent = "40";
+    }
+}
 
-// CHANGING GAME IN NEW SET
-// p1MatchScore.textContent += " 1";
-// // "6 1"
-// gameSet2 = p1MatchScore.textContent.substring(2,3); 
-// // "1"
-// gameSet2 = (parseInt(gameSet2) + 1).toString(); 
-// // "2"
-// gameSet1andGap = p1MatchScore.textContent.substring(0,2); 
-// // "6 "
-// p1MatchScore.textContent = gameSet1andGap + gameSet2; 
-// // "6 2"
+function GoTo40P1() {
+    if (p2GamePoints.textContent === "AD") {  
+        p1GamePoints.textContent = "40"; 
+        p2GamePoints.textContent = "40"
+    }
+}
 
-
-//WIN-CODE
-
-// make a set count like: setCounterP1 = 0; 
-// when p1 wins a set: setCounterP1 = 1; 
-// and then: if(setCounterP1 = 2); => P1 wins
+function gameFinishDeuceP1() {
+    if (p1GamePoints.textContent === "AD") {
+        gamesP1 += 1;
+        p1MatchScore.textContent = gamesP1;  
+        p1GamePoints.textContent = "0"; 
+        p2GamePoints.textContent = "0";
+    }
+}
