@@ -4,6 +4,10 @@
         <title>Tennis Match Counter</title>
 
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Chango&family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="game-counter-box">
@@ -14,7 +18,7 @@
                     <div id="P1-points">0</div>
                 </div>
 
-                <div id="WTP-P1-box">
+                <div id="WTP-P1-box" onclick= "gameCounterP1()">
                     <button class="won-the-point-P1">Won the point</button>
                 </div>
             </div>
@@ -25,7 +29,7 @@
                     <div id="P2-points">0</div>
                 </div>
 
-                <div id="WTP-P2-box">
+                <div id="WTP-P2-box" onclick= "gameCounterP2()">
                     <button id="won-the-point-P2">Won the point</button>
                 </div>
 
@@ -35,12 +39,12 @@
 
             <div id="P1-match-box">   
                <p id="player-1-name">PLAYER 1</p>
-               <p id="P1-match-score"></p>
+               <p id="P1-match-score">0</p>
             </div>
 
             <div id="P2-match-box">
                 <p id="player-2-name">PLAYER 2</p>
-                <p id="P2-match-score"></p>
+                <p id="P2-match-score">0</p>
             </div>
             
         </div>

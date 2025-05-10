@@ -10,6 +10,7 @@ body {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
+    color: whitesmoke; 
 }
 
 #game-counter-box {
@@ -43,6 +44,8 @@ body {
 #P1-name, #P2-name {
     border: 2px solid blue; 
     height: 15%; 
+    font-family: 'Chango', sans-serif;
+    font-size: 16px; 
 }
 
 #P1-points-box, #P2-points-box {
@@ -52,6 +55,8 @@ body {
 
 #P1-points, #P2-points {
     border: 2px solid aqua; 
+    font-family: 'Chango', sans-serif;
+    font-size: 14px; 
 }
 
 #WTP-P1-box, #WTP-P2-box {
@@ -88,6 +93,8 @@ body {
     height: 100%; 
     width: 25%; 
     margin: 0; 
+    font-family: 'Chango', sans-serif;
+    font-size: 14px; 
 }
 
 #P1-match-score, #P2-match-score {
@@ -95,4 +102,6 @@ body {
     height: 100%; 
     width: 75%;
     margin: 0; 
+    font-family: 'Chango', sans-serif;
+    font-size: 14px; 
 }
