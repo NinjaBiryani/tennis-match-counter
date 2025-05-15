@@ -146,7 +146,7 @@ function set1CounterP1() {
     } else if (p1MatchScore.textContent === "6" && p2MatchScore.textContent === "6" && (setCounterP1 === 0)) {
 
         // TIEBREAK "5/less-6/less" STATE
-        if (p1GamePoints.textContent <= "5" && p2GamePoints.textContent <= "6" && (setCounterP1 === 0)) {
+        if (Number(p1GamePoints.textContent) <= 5 && Number(p2GamePoints.textContent) <= 6 && (setCounterP1 === 0)) {
             
             // TIEBREAK GOING TO "6-5/less" STATE OR GOING TO "6/6" STATE
             // tiebreak-code
@@ -167,7 +167,7 @@ function set1CounterP1() {
             p1MatchScore.textContent += " 0"; 
             p2MatchScore.textContent += " 0"; 
         
-        // TIEBREAK "6-6" STATE => or better said: X(+ 1)-X(+ 1) STATE (with X(minimum) = 6 )
+        // TIEBREAK "6-6" STATE => or better said: X(+ 1)-X(+ 1) STATE (with X(minimum) = 6)
         } else if ((Number(p1GamePoints.textContent) >= 6 && Number(p2GamePoints.textContent) >= 6) && (((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == 0) || ((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == -1) || ((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == 1)) && (setCounterP1 == 0)) { 
 
             // TIEBREAK EQUAL/DISAD STATE
@@ -176,7 +176,7 @@ function set1CounterP1() {
                 // TIEBREAK GOING TO AD/EQUAL STATE
                 // tiebreak-code
                 tiebreakCounterP1 += 1; 
-                p1GamePoints.textContent = tiebreakCounterP1; 
+                p1GamePoints.textContent = tiebreakCounterP1;  
 
             
             // TIEBREAK AD STATE
@@ -384,11 +384,12 @@ function set1CounterP2() {
             p1MatchScore.textContent += " 0"; 
 
         }
+
     // SET 6-6 STATE
     } else if (p2MatchScore.textContent === "6" && p1MatchScore.textContent === "6" && (setCounterP2 === 0)) {
 
         // TIEBREAK "5/less-6/less" STATE
-        if (p2GamePoints.textContent <= "5" && p1GamePoints.textContent <="6" && (setCounterP2 === 0)) {
+        if (Number(p2GamePoints.textContent) <= 5 && Number(p1GamePoints.textContent) <= 6 && (setCounterP2 === 0)) {
             
             // TIEBREAK GOING TO "6-5/less" STATE OR GOING TO "6/6" STATE
             // tiebreak-code
