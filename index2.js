@@ -37,8 +37,8 @@ let  p2MatchScore = document.getElementById("P2-match-score");
 let pointBtnP1 = document.getElementById("pointBtnP1"); 
 let pointBtnP2 = document.getElementById("pointBtnP2"); 
 
-let gamesP1 = 6; 
-let gamesP2 = 6; 
+let gamesP1 = 0; 
+let gamesP2 = 0; 
 
 let setCounterP1 = 0; 
 let setCounterP2 = 0; 
@@ -49,8 +49,8 @@ let tiebreakCounterP2 = 0;
 p1GamePoints.textContent = "0"; 
 p2GamePoints.textContent = "0"; 
 
-p1MatchScore.textContent = "6"; 
-p2MatchScore.textContent = "6"; 
+p1MatchScore.textContent = "0"; 
+p2MatchScore.textContent = "0"; 
 
 pointBtnP1.addEventListener("click", set1CounterP1); 
 pointBtnP2.addEventListener("click", set1CounterP2); 
