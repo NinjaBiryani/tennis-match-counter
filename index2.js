@@ -168,19 +168,19 @@ function set1CounterP1() {
             p2MatchScore.textContent += " 0"; 
         
         // TIEBREAK "6-6" STATE => or better said: X(+ 1)-X(+ 1) STATE (with X(minimum) = 6 )
-        } else if ((p1GamePoints.textContent >= "6" && p2GamePoints.textContent >= "6") && (-1 <= (Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) <= 1) && (setCounterP1 === 0))  {
+        } else if ((Number(p1GamePoints.textContent) >= 6 && Number(p2GamePoints.textContent) >= 6) && (((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == 0) || ((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == -1) || ((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == 1)) && (setCounterP1 == 0)) { 
 
             // TIEBREAK EQUAL/DISAD STATE
-            if ((((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) === 0) || (Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) === -1) && (setCounterP1 === 0)) {
-                
-                // TIEBREAK GOING TO AD STATE
+            if ((((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == 0) || ((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == -1)) && (setCounterP1 == 0)) {
+                // (((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) === 0) || ((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) === -1))
+                // TIEBREAK GOING TO AD/EQUAL STATE
                 // tiebreak-code
                 tiebreakCounterP1 += 1; 
                 p1GamePoints.textContent = tiebreakCounterP1; 
 
             
             // TIEBREAK AD STATE
-            } else if ((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) === 1 && (setCounterP1 === 0)) {
+            } else if (((Number(p1GamePoints.textContent) - Number(p2GamePoints.textContent)) == 1) && (setCounterP1 == 0)) {
                 
                 // TIEBREAK "X+2/X" FINISH
                 // nextSet-code (tiebreak)
@@ -410,19 +410,23 @@ function set1CounterP2() {
             p1MatchScore.textContent += " 0"; 
         
         // TIEBREAK "6-6" STATE 
-        } else if ((p2GamePoints.textContent >= "6" && p1GamePoints.textContent >= "6") && (-1 <= (Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) <= 1) && (setCounterP2 === 0))  { 
+        } else if ((Number(p2GamePoints.textContent) >= 6 && Number(p1GamePoints.textContent) >= 6) && (((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) == 0) || ((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) == -1) || ((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) == 1)) && (setCounterP2 == 0)) { 
+            // (((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) === 0) || ((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) === -1) || ((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) === 1))
+            // (-1 <= (Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) <= 1)
 
             // TIEBREAK EQUAL/DISAD STATE
-            if ((((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) === 0) || (Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) === -1) && (setCounterP2 === 0)) {
-                
-                // TIEBREAK GOING TO AD STATE
+            if ((((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) == 0) || ((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) == -1)) && (setCounterP2 == 0)) {
+                // (((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) === 0) || ((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) === -1))
+                // (-1 <= (Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) <= 0)
+
+                // TIEBREAK GOING TO AD/EQUAL STATE
                 // tiebreak-code
                 tiebreakCounterP2 += 1; 
                 p2GamePoints.textContent = tiebreakCounterP2; 
 
             
             // TIEBREAK AD STATE
-            } else if ((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) === 1 && (setCounterP2 === 0)) {
+            } else if (((Number(p2GamePoints.textContent) - Number(p1GamePoints.textContent)) == 1) && (setCounterP2 == 0)) {
                 
                 // TIEBREAK "X+2/X" FINISH
                 // nextSet-code (tiebreak)
